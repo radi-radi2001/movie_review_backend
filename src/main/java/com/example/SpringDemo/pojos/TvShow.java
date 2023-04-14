@@ -1,5 +1,6 @@
 package com.example.SpringDemo.pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,7 +47,7 @@ public class TvShow {
 
     @Column(name = "poster")
     private String poster;
-
+    @JsonIgnore
     @OneToOne(mappedBy = "tvShow")
     private Review review;
 

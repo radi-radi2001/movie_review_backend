@@ -1,6 +1,7 @@
 package com.example.SpringDemo.pojos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 
@@ -47,7 +48,7 @@ public class Film {
 
     @Column(name = "awards")
     private String Awards;
-
+    @JsonIgnore
     @OneToOne(mappedBy = "film")
     private Review review;
 
