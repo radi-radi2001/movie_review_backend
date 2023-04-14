@@ -26,12 +26,10 @@ public class Review {
     private String Description;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JsonBackReference
     @JoinColumn(name = "film_id", referencedColumnName = "id")
     private Film film;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JsonBackReference
     @JoinColumn(name = "tvshow_id", referencedColumnName = "tvshowId")
     private TvShow tvShow;
 

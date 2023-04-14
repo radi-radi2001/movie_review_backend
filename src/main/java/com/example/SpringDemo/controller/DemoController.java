@@ -51,7 +51,7 @@ public class DemoController {
 
     @PostMapping("/film")
     @CrossOrigin(origins = "http://localhost:3000")
-    public Film saveFilm(@RequestBody  Film film){
+    public Film saveFilm(@RequestBody Film film){
         employeeService.saveFilm(film);
         return film;
     }
@@ -62,6 +62,7 @@ public class DemoController {
         tvShowService.saveTvShow(tvShow);
         return tvShow;
     }
+
     @PostMapping("/episodes")
     @CrossOrigin(origins = "http://localhost:3000")
     public void saveEpisodes(@RequestBody List<Episode> list){

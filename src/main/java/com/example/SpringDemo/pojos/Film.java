@@ -13,7 +13,7 @@ public class Film {
     private int filmId;
     @Column(name = "Title")
     private String Title;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+
     @Column(name = "Released")
     private String Released;
 
