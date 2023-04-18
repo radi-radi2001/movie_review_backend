@@ -47,11 +47,15 @@ public class TvShow {
 
     @Column(name = "poster")
     private String poster;
+
+    @Column(name = "tmdb_id")
+    private int TMDB_id;
+
     @JsonIgnore
     @OneToOne(mappedBy = "tvShow")
     private Review review;
 
-    public TvShow(String title, Date date, String rated, int seasons, String genre, String directors, String writers, String actors, String plot, String language, String poster, Review review) {
+    public TvShow(String title, Date date, String rated, int seasons, String genre, String directors, String writers, String actors, String plot, String language, String poster, int tmdb_id, Review review) {
         this.title = title;
         this.date = date;
         this.rated = rated;
@@ -63,6 +67,7 @@ public class TvShow {
         this.plot = plot;
         this.language = language;
         this.poster = poster;
+        TMDB_id = tmdb_id;
         this.review = review;
     }
 
@@ -173,4 +178,8 @@ public class TvShow {
     public void setReview(Review review) {
         this.review = review;
     }
+
+    public int getTMDB_id() { return TMDB_id; }
+
+    public void setTMDB_id(int tmdb_id) { TMDB_id = tmdb_id; }
 }
