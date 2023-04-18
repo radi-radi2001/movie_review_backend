@@ -45,7 +45,8 @@ public class Film {
     @Column(name = "poster")
     private String Poster;
 
-
+    @Column(name = "tmdb_id")
+    private int TMDB_id;
     @Column(name = "awards")
     private String Awards;
     @JsonIgnore
@@ -63,7 +64,7 @@ public class Film {
     public Film(){
 
     }
-    public Film(int filmId, String Title, String released, char rate, int runtime, String genre, String director, String writer, String actors, String plot, String language, String poster, String awards, Review review) {
+    public Film(int filmId, String Title, String released, char rate, int runtime, String genre, String director, String writer, String actors, String plot, String language, String poster, String awards, int tmdb_id, Review review) {
         this.filmId = filmId;
         this.Title = Title;
         Released = released;
@@ -77,6 +78,7 @@ public class Film {
         Language = language;
         Poster = poster;
         Awards = awards;
+        TMDB_id = tmdb_id;
         this.review = review;
     }
 
@@ -183,4 +185,8 @@ public class Film {
     public void setAwards(String awards) {
         Awards = awards;
     }
+
+    public int getTMDB_id() { return TMDB_id; }
+
+    public void setTMDB_id(int tmdb_id) { TMDB_id = tmdb_id; }
 }
