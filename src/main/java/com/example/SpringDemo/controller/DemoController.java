@@ -71,4 +71,10 @@ public class DemoController {
         episodeService.saveAll(episodeList);
     }
 
+    @GetMapping("/tvshows")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public List<TvShow> allShows (){
+        return tvShowService.allTvShows();
+    }
+
 }
