@@ -1,6 +1,6 @@
 package com.example.SpringDemo.Services;
 
-import com.example.SpringDemo.Services.EmployeeService;
+import com.example.SpringDemo.Services.FilmService;
 import com.example.SpringDemo.pojos.Film;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -10,10 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Repository
-public class EmployeeServiceImpl implements EmployeeService {
+public class FilmServiceImpl implements FilmService {
     public EntityManager entityManager;
     @Autowired
-    public EmployeeServiceImpl(EntityManager entityManager){
+    public FilmServiceImpl(EntityManager entityManager){
         this.entityManager = entityManager;
     }
     @Override

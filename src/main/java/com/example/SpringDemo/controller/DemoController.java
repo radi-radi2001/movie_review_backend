@@ -1,7 +1,8 @@
 package com.example.SpringDemo.controller;
 
-import com.example.SpringDemo.Services.EmployeeService;
+import com.example.SpringDemo.Services.FilmService;
 import com.example.SpringDemo.Services.EpisodeService;
+import com.example.SpringDemo.Services.FilmService;
 import com.example.SpringDemo.Services.ReviewInterface;
 import com.example.SpringDemo.Services.TvShowService;
 import com.example.SpringDemo.pojos.Episode;
@@ -18,13 +19,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class DemoController {
-    public EmployeeService employeeService;
+    public FilmService filmService;
     public ReviewInterface reviewInterface;
     public TvShowService tvShowService;
     public EpisodeService episodeService;
     @Autowired
-    public DemoController(EmployeeService employeeService, ReviewInterface reviewInterface, TvShowService tvShowService,EpisodeService episodeService){
-        this.employeeService = employeeService;
+    public DemoController(FilmService filmService, ReviewInterface reviewInterface, TvShowService tvShowService, EpisodeService episodeService){
+        this.filmService = filmService;
         this.reviewInterface = reviewInterface;
         this.tvShowService = tvShowService;
         this.episodeService = episodeService;
@@ -33,7 +34,7 @@ public class DemoController {
     @GetMapping("/films")
     @CrossOrigin(origins = "http://localhost:3000")
     public List<Film> allMovies(){
-        return employeeService.findAll();
+        return filmService.findAll();
     }
 
     @GetMapping("/reviews")
@@ -52,7 +53,7 @@ public class DemoController {
     @PostMapping("/film")
     @CrossOrigin(origins = "http://localhost:3000")
     public Film saveFilm(@RequestBody Film film){
-        employeeService.saveFilm(film);
+        filmService.saveFilm(film);
         return film;
     }
 
