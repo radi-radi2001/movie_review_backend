@@ -26,6 +26,18 @@ public class Review {
     @Column(name = "descriptionn")
     private String Description;
 
+    @Column(name = "spoiler")
+    private Boolean Spoiler;
+
+    @Column(name = "date")
+    private String Date;
+
+    @Column(name = "name")
+    private String Name;
+
+    @Column(name = "username")
+    private String Username;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "film_id", referencedColumnName = "id")
     private Film film;
@@ -38,11 +50,15 @@ public class Review {
 
     }
 
-    public Review(String title, float rating, String type, String description,Film film,TvShow tvShow) {
+    public Review(String title, float rating, String type, String description, Boolean spoiler, String date, String name, String username, Film film,TvShow tvShow) {
         this.title = title;
         Rating = rating;
         Type = type;
         Description = description;
+        Spoiler = spoiler;
+        Date = date;
+        Name = name;
+        Username = username;
         this.film = film;
         this.tvShow = tvShow;
     }
@@ -102,4 +118,22 @@ public class Review {
     public void setDescription(String description) {
         Description = description;
     }
+
+    public Boolean getSpoiler() {
+        return Spoiler;
+    }
+
+    public void setSpoiler(Boolean spoiler) { Spoiler = spoiler; }
+
+    public String getDate() { return Date; }
+
+    public void setDate(String date) { Date = date; }
+
+    public String getName() { return Name; }
+
+    public void setName(String name) { Name = name; }
+
+    public String getUsername() { return Username; }
+
+    public void setUsername(String username) { Username = username; }
 }
