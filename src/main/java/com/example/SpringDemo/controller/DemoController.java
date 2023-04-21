@@ -2,7 +2,6 @@ package com.example.SpringDemo.controller;
 
 import com.example.SpringDemo.Services.FilmService;
 import com.example.SpringDemo.Services.EpisodeService;
-import com.example.SpringDemo.Services.FilmService;
 import com.example.SpringDemo.Services.ReviewInterface;
 import com.example.SpringDemo.Services.TvShowService;
 import com.example.SpringDemo.pojos.Episode;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 @RestController
@@ -32,40 +32,40 @@ public class DemoController {
     }
 
     @GetMapping("/films")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://reviewing-site.vercel.app")
     public List<Film> allMovies(){
         return filmService.findAll();
     }
 
     @GetMapping("/reviews")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://reviewing-site.vercel.app")
     public List<Review> allReviews(){
         return reviewInterface.allReviews();
     }
 
     @PostMapping("/review")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://reviewing-site.vercel.app")
     public Review saveReview(@RequestBody  Review review){
         reviewInterface.saveReview(review);
         return review;
     }
 
     @PostMapping("/film")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://reviewing-site.vercel.app")
     public Film saveFilm(@RequestBody Film film){
         filmService.saveFilm(film);
         return film;
     }
 
     @PostMapping("/tvshow")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://reviewing-site.vercel.app")
     public TvShow saveTvShow(@RequestBody TvShow tvShow){
         tvShowService.saveTvShow(tvShow);
         return tvShow;
     }
 
     @PostMapping("/episodes")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://reviewing-site.vercel.app")
     public void saveEpisodes(@RequestBody List<Episode> list){
         List<Episode> episodeList = new ArrayList<>(list);
         episodeList.addAll(list);
@@ -73,7 +73,7 @@ public class DemoController {
     }
 
     @GetMapping("/tvshows")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://reviewing-site.vercel.app")
     public List<TvShow> allShows (){
         return tvShowService.allTvShows();
     }
